@@ -101,9 +101,6 @@ exports.addEnquiries = async (req, res) => {
         return res.status(500).json({ error: 'Failed to create job or send email', details: error.message });
     }
 };
-
-
-
 exports.getAlluserData = async (req, res) => { 
     try {
         const allUsers = await userdts.find().select('-createdAt -updatedAt');
@@ -112,5 +109,14 @@ exports.getAlluserData = async (req, res) => {
         return res.status(500).json({ error: 'Failed to retrieve users', details: error.message });
     }
 };
+exports.getAllEnquiries= async (req, res) => { 
+    try {
+        const allEnquiry= await userEnquiry.find().select('-createdAt -updatedAt');
+        return res.status(200).json(allEnquiry);
+    } catch (error) {
+        return res.status(500).json({ error: 'Failed to retrieve users enquiry', details: error.message });
+    }
+};
+
 
 

@@ -16,6 +16,8 @@ router.get('/get/usersdts',protect,admin,userController.getAlluserData)
 
 router.post('/enquiry/submit',userController.addEnquiries)
 
+router.get('/get/user/enquiry',protect,admin,userController.getAllEnquiries)
+
 
 
 
