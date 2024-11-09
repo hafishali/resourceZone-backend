@@ -14,6 +14,9 @@ router.post('/submit',multerconfig.single('cv'),userController.addUserData)
 
 router.get('/get/usersdts',protect,admin,userController.getAlluserData)
 
+router.post('/enquiry/submit',userController.addEnquiries)
+
+
 
 
 

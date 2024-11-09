@@ -63,6 +63,45 @@ exports.addUserData = async (req, res) => {
         return res.status(500).json({ error: 'Failed to create job or send email', details: error.message });
     }
 };
+exports.addEnquiries = async (req, res) => {
+    try {
+        const { message, Phone_number, email, Last_Name,First_Name } = req.body;
+
+
+        const newUser = new userdts({
+            First_Name,
+            Last_Name,
+            email,
+            Phone_number,
+            message
+        });
+
+        await newUser.save();
+        const { createdAt, updatedAt, ...userWithoutTimestamps } = newUser.toObject();
+        const mailOptions = {
+            from: `${email}`,
+            to: `${process.env.GMAIL}`,  // Replace with the recipient's email address
+            subject: `New User Enquiry -${First_Name}`,
+            text: `You have a User Enquiry:
+                   Name: ${First_Name} ${Last_Name}
+                   Email: ${email}
+                   Phone Number: ${Phone_number}
+                   Message: ${message}`,
+        };
+
+        // Send the email
+        await transporter.sendMail(mailOptions);
+
+        // Send response after both saving and emailing
+        return res.status(201).json({ message: 'Job created successfully and email sent', job: userWithoutTimestamps });
+
+    } catch (error) {
+        console.error("Error:", error);
+        return res.status(500).json({ error: 'Failed to create job or send email', details: error.message });
+    }
+};
+
+
 
 exports.getAlluserData = async (req, res) => { 
     try {
