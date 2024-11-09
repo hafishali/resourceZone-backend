@@ -1,4 +1,5 @@
 const userdts = require('../models/userModel'); // Ensure this is correctly referenced
+const userEnquiry=require('../models/userEnquiryModel')
 const nodemailer = require('nodemailer');
 const path = require('path');
 
@@ -68,7 +69,7 @@ exports.addEnquiries = async (req, res) => {
         const { message, Phone_number, email, Last_Name,First_Name } = req.body;
 
 
-        const newUser = new userdts({
+        const newUser = new userEnquiry({
             First_Name,
             Last_Name,
             email,
@@ -111,3 +112,5 @@ exports.getAlluserData = async (req, res) => {
         return res.status(500).json({ error: 'Failed to retrieve users', details: error.message });
     }
 };
+
+
