@@ -7,7 +7,8 @@ const jobSchema = new mongoose.Schema({
     country:{type: String, required: true,},
     location:{type: String, required: true,},
     post_date:{type:String,required:true},
-    deadline_date:{type:String}
+    deadline_date:{type:String},
+    status:{type:Boolean}
 
 
   
