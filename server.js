@@ -4,6 +4,8 @@ const authRoutes = require('./routes/authRoutes.js');
 const adminRoutes = require('./routes/AdminRoutes.js');
 const AdminJobsRoutes = require('./routes/AdminJobsRoutes.js');
 const UserJobs = require('./routes/UserJobsRoutes.js');
+require('./controllers/JobSheduler.js');
+
 
 const cors = require('cors');
 require('dotenv').config();

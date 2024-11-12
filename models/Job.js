@@ -8,11 +8,7 @@ const jobSchema = new mongoose.Schema({
     location:{type: String, required: true,},
     post_date:{type:String,required:true},
     deadline_date:{type:String},
-    status:{type:Boolean}
-
-
-  
-
+    status:{type:Boolean,default:true}
 }, {
     timestamps: true
 });
