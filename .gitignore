@@ -11,8 +11,8 @@ npm-debug.log*
 .env
 
 # Build output
-dist/
-build/
+
+
 
 # Dependency directories
 bower_components/

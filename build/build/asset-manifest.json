@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3e9aeccb.css",
+    "main.js": "/static/js/main.b7db4ecf.js",
+    "static/media/lOGO RESOURZONE.svg": "/static/media/lOGO RESOURZONE.92fac3d62bd1c3083ac7344ce5dd7bac.svg",
+    "index.html": "/index.html",
+    "main.3e9aeccb.css.map": "/static/css/main.3e9aeccb.css.map",
+    "main.b7db4ecf.js.map": "/static/js/main.b7db4ecf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3e9aeccb.css",
+    "static/js/main.b7db4ecf.js"
+  ]
+}
