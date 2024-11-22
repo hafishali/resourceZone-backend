@@ -13,8 +13,8 @@ const transporter = nodemailer.createTransport({
     host:'smtp.gmail.com',
     port:465,
     auth: {
-        user: process.env.GMAIL,  
-        pass: process.env.APP_PASSWORD   
+        user:process.env.GMAIL,  
+        pass:process.env.APP_PASSWORD 
     }
 });
 exports.addUserData = async (req, res) => {
@@ -38,7 +38,7 @@ exports.addUserData = async (req, res) => {
         const { createdAt, updatedAt, ...userWithoutTimestamps } = newUser.toObject();
         const mailOptions = {
             from: `${email}`,
-            to: `${process.env.GMAIL}`,  // Replace with the recipient's email address
+            to:process.env.GMAIL,  // Replace with the recipient's email address
             subject: `New Job Application -${Name}`,
             text: `You have a new job application:
                    Name: ${Name}
@@ -119,6 +119,5 @@ exports.getAllEnquiries= async (req, res) => {
         return res.status(500).json({ error: 'Failed to retrieve users enquiry', details: error.message });
     }
 };
-
 
 
