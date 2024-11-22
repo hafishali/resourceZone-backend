@@ -13,8 +13,8 @@ const transporter = nodemailer.createTransport({
     host:'smtp.gmail.com',
     port:465,
     auth: {
-        user: process.env.GMAIL,  // Should pull the value from .env
-        pass: process.env.APP_PASSWORD   // Replace with your Gmail app-specific password
+        user: process.env.GMAIL,  
+        pass: process.env.APP_PASSWORD   
     }
 });
 exports.addUserData = async (req, res) => {
@@ -101,6 +101,8 @@ exports.addEnquiries = async (req, res) => {
         return res.status(500).json({ error: 'Failed to create job or send email', details: error.message });
     }
 };
+
+
 exports.getAlluserData = async (req, res) => { 
     try {
         const allUsers = await userdts.find().select('-createdAt -updatedAt');
