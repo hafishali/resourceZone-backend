@@ -57,7 +57,7 @@ exports.addUserData = async (req, res) => {
         await transporter.sendMail(mailOptions);
 
         // Send response after both saving and emailing
-        return res.status(201).json({ message: 'Job created successfully and email sent', job: userWithoutTimestamps });
+        return res.status(201).json({ message: 'Job created successfully and email sent' });
 
     } catch (error) {
         console.error("Error:", error);
@@ -94,7 +94,7 @@ exports.addEnquiries = async (req, res) => {
         await transporter.sendMail(mailOptions);
 
         // Send response after both saving and emailing
-        return res.status(201).json({ message: 'Job created successfully and email sent', job: userWithoutTimestamps });
+        return res.status(201).json({ message: 'Job created successfully and email sent' });
 
     } catch (error) {
         console.error("Error:", error);
@@ -105,7 +105,7 @@ exports.addEnquiries = async (req, res) => {
 
 exports.getAlluserData = async (req, res) => { 
     try {
-        const allUsers = await userdts.find().select('-createdAt -updatedAt');
+        const allUsers = await userdts.find()
         return res.status(200).json(allUsers);
     } catch (error) {
         return res.status(500).json({ error: 'Failed to retrieve users', details: error.message });
@@ -113,7 +113,7 @@ exports.getAlluserData = async (req, res) => {
 };
 exports.getAllEnquiries= async (req, res) => { 
     try {
-        const allEnquiry= await userEnquiry.find().select('-createdAt -updatedAt');
+        const allEnquiry= await userEnquiry.find()
         return res.status(200).json(allEnquiry);
     } catch (error) {
         return res.status(500).json({ error: 'Failed to retrieve users enquiry', details: error.message });
