@@ -5,7 +5,7 @@ const userController=require('../controllers/userController.js')
 const multerconfig = require('../middleware/multerConfig.js')
 const { protect, admin } = require('../middleware/authMiddleware.js'); 
 
-
+// routes
 router.get('/', jobController.getAllJobs);
 
 router.get('/:id', jobController.getJob);
