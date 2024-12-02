@@ -26,7 +26,7 @@ app.use('/documents', express.static('./documents'));
 // userRoutes
 app.use('/user-jobs', UserJobs);
 
-// Serve static files from the 'build' folder (combined frontend)
+// Serve static files from the 'build' folder -(combined frontend)
 app.use(express.static(path.join(__dirname, 'build')));
 
 // Route to handle all requests and serve the frontend's index.html
