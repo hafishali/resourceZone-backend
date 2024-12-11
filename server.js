@@ -4,6 +4,7 @@ const authRoutes = require('./routes/authRoutes.js');
 const adminRoutes = require('./routes/AdminRoutes.js');
 const AdminJobsRoutes = require('./routes/AdminJobsRoutes.js');
 const UserJobs = require('./routes/UserJobsRoutes.js');
+const Testimonilas = require('./routes/TestimonialsRoutes.js');
 require('./controllers/JobSheduler.js');
 
 const cors = require('cors');
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use('/auth', authRoutes);
 app.use('/admin', adminRoutes);
 app.use('/admin-jobs', AdminJobsRoutes);
+app.use('/Testimonials', Testimonilas);
 
 app.use('/documents', express.static('./documents'));
 
